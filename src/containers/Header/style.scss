@@ -1,0 +1,36 @@
+@import '@assets/styles/colors';
+@import '@assets/styles/variables';
+
+header {
+  padding: 0px 70px;
+
+  width: 100%;
+  height: 100px;
+  display: grid;
+  grid-template-columns: 100px minmax(240px, 556px) minmax(190px, 1fr) 150px;
+  grid-template-rows: 1fr;
+  grid-gap: 1em;
+  grid-template-areas: "logo form contacts basket";
+            
+  align-items: center;
+
+  @media screen and (max-width: $media-tablet) {
+    padding: 0px 20px;
+  }
+
+  @media screen and (max-width: $media-mobile) {
+    padding: 0px 10px;
+    height: 142px;
+    grid-template-columns: 60px 1fr 60px;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 8px;
+    grid-template-areas: 
+              "menu logo basket"
+              "form form form";
+              
+    
+    .contacts {
+      display: none;
+    }
+  }
+}

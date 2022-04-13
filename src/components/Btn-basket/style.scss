@@ -1,0 +1,84 @@
+@import '@assets/styles/colors';
+@import '@assets/styles/variables';
+
+.custom-btn-basket {
+  background-color: $green-color;
+  padding: 0px 8px;
+
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: none;
+  border-radius: $br;
+
+  cursor: pointer;
+
+  p {
+    flex-grow: 1;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.75em;
+    font-weight: 700;
+    line-height: 1em;
+    color: $primary-color;
+  }
+
+  img {
+    display: none;
+    margin: 0 auto 3px;
+    width: 24px;
+    height: 24px;
+  }
+
+  span {
+    $shift: 10px;
+    background-color: white;
+    margin-left: $shift;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.875em;
+    font-weight: 700;
+    color: $dark-color;
+
+    border-radius: 50%;
+
+    &::before {
+      background-color: $light-green-line-color;
+      position: absolute;
+      top: 0;
+      left: -$shift;
+      width: 2px;
+      height: 100%;
+      display: block;
+      content: '';
+    }
+  }
+
+  @media screen and (max-width: $media-mobile) {
+    padding: 0;
+    width: 60px;
+    height: 56px;
+
+    &, img {
+      display: block;
+    }
+
+    span {
+      display: none;
+    }
+
+    p {
+      text-transform: lowercase;
+      line-height: 1.75em;
+      border-top: 1px solid $light-green-line-color;
+    }
+  }
+}

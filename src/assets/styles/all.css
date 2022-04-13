@@ -1,0 +1,21 @@
+@import './reset.css';
+@import './fonts.css';
+
+:root {
+  --green-color: #618967;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(360deg, #211F20 0%, #44403F 100%);
+}
+
+#app {
+  margin: 0 auto;
+  max-width: 1920px;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

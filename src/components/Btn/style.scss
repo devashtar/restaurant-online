@@ -1,0 +1,17 @@
+@import '@assets/styles/colors';
+@import '@assets/styles/variables';
+
+.custom-btn {
+  background-color: $green-color;
+  
+  padding: 0px 16px;
+
+  border: none;
+  border-radius: $br;
+
+  font-size: 14px;
+  color: $primary-color;
+  text-decoration: none;
+
+  cursor: pointer;
+}

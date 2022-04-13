@@ -1,0 +1,55 @@
+@import '@assets/styles/colors';
+@import '@assets/styles/variables';
+
+.menu {
+  background-color: transparent;
+  width: auto;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  border: none;
+
+  cursor: pointer;
+
+  span {
+    $shift: 8px;
+    position: relative;
+
+    &, &::before, &::after {
+      background-color: $green-color;
+      left: 0;
+      width: 25px;
+      height: 3px;
+      display: block;
+      content: '';
+      border-radius: 2px;
+    }
+
+    &::before, &::after {
+      position: absolute;
+    }
+
+    &::before {
+      top: $shift;
+    }
+
+    &::after {
+      top: calc($shift * 2);
+    }
+  }
+
+  p {
+    font-size: 0.75em;
+    font-weight: 700;
+    line-height: 1em;
+    letter-spacing: 0.0725em;
+    color: $primary-color;
+  }
+
+  @media screen and (min-width: $media-mobile) {
+    display: none;
+  }
+}
