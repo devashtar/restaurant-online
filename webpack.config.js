@@ -1,3 +1,7 @@
+// переменные окружения для конфигурации webpack
+require('dotenv').config()
+// переменные окружения для приложения
+const Dotenv = require('dotenv-webpack')
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -7,8 +11,9 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
 
-// УКАЗЫВАЕМ URL ДЛЯ PRODUCTION. (обязательно слэш в конце URL).
-const PRODUCTION_URL = 'https://www.example.com/'
+// УКАЗЫВАЕМ URL ДЛЯ PRODUCTION(обязательно слэш в конце URL)
+// ПРИМЕР: https://www.example.com/
+const PRODUCTION_URL = process.env.PRODUCTION_URL || ''
 
 module.exports = (env) => {
     const isDev = env.mode === 'development'
@@ -102,6 +107,7 @@ module.exports = (env) => {
 
     const plugins = () => {
         const base = [
+            new Dotenv({ path: '.env.geoservice' }),
             new EnvironmentPlugin({
                 SRC_DIR: path.join(__dirname, 'src'),
             }),
@@ -119,6 +125,8 @@ module.exports = (env) => {
                         to: path.resolve(__dirname, 'dist'),
                         noErrorOnMissing: true,
                         globOptions: {
+                            // HTMLWebpackPlugin уже формирует html файл
+                            // поэтому здесь мы его игнорируем(не копируем)
                             ignore: ['**/index.html'],
                         },
                     },

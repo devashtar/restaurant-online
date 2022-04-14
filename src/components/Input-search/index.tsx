@@ -4,6 +4,12 @@ import './style'
 export const InputSearch: React.FC<{}> = () => {
     const [value, setValue] = useState('')
 
+    const endpoint = process.env.ENDPOINT_URL
+    const apiKey = process.env.API_KEY
+    const query = 'рязань ленина'
+    const requestExample = `${endpoint}?q=${query}&apiKey=${apiKey}`
+    // реализовать выпадающий список с подсказками
+
     const handleSubmit: React.ReactEventHandler = (e) => {
         e.preventDefault()
         setValue('')
