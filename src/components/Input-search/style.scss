@@ -2,75 +2,132 @@
 @import '@assets/styles/variables';
 
 .search-form {
-  /* если задать переменную из scss синтаксиса, то она не сработает для background в месте где мы устанавливаем размер для icon */
-  --icon-size: 18px;
-  $i: 24px;
   position: relative;
-  
+
   width: 100%;
   height: 50px;
 
-  overflow: hidden;
-  border-radius: $br;
+  .search-form__input-wrapper {
+    /* если задать переменную из scss синтаксиса, то она не сработает для background в месте где мы устанавливаем размер для icon */
+    --icon-size: 18px;
+    $i: 24px;
+    position: relative;
 
-  input[type=text] {
-    padding: 0px 44px 0px 40px;
-    background: $bg-color center left 12px / var(--icon-size) no-repeat url(@assets/images/icons/location.svg);
-    width: 100%;
+    width: inherit;
     height: inherit;
 
-    font-size: 0.9375em;
+    overflow: hidden;
+    border-radius: $br;
 
-    border: 2px solid $bg-color;
-    border-radius: inherit;
-    
-    &::placeholder {
-      font-size: 1.125em;
+    input[type='text'] {
+      background: $bg-color center left 12px / var(--icon-size) no-repeat url(@assets/images/icons/location.svg);
+      &.found {
+        background-image: url(@assets/images/icons/ok.svg);
+      }
+      padding: 0px 44px 0px 40px;
+      
+      width: 100%;
+      height: inherit;
+
+      font-size: 0.9375em;
+
+      border: 2px solid $bg-color;
+      border-radius: inherit;
+
+      &::placeholder {
+        font-size: 1.125em;
+      }
+
+      /* если ширина input недостаточна для отображения всего текста placeholder, то отобразить троеточие */
+      &:placeholder-shown {
+        text-overflow: ellipsis;
+      }
+
+      &:focus {
+        border: 2px solid $secondary-color;
+      }
     }
 
-    /* если ширина input недостаточна для отображения всего текста placeholder, то отобразить троеточие */
-    &:placeholder-shown {
-      text-overflow: ellipsis;
-    }
+    input[type='submit'] {
+      background: transparent center left / var(--icon-size) no-repeat url(@assets/images/icons/search.svg);
+      position: absolute;
+      top: 0;
+      right: 0;
 
-    &:focus {
-      border: 2px solid $secondary-color;
+      padding: 0;
+      margin: 0;
+
+      width: 40px;
+      height: inherit;
+
+      border: none;
+      cursor: pointer;
+
+      transition: background ease-in 0.1s;
+
+      /* только для desktop версии, чтобы не залипало на сенсорных экранах*/
+      @media (hover: hover) and (pointer: fine) {
+
+        /* проверяем что desktop с мышкой */
+        &:hover {
+          background-size: 20px;
+          transition: background ease-in 0.1s;
+        }
+
+        &:focus {
+          background-color: rgba(255,255,255, 0.2);
+        }
+      }
+
+      /* для события нажатия(эмуляция :hover) на сенсорных экранах */
+      @media (hover: none) and (pointer: coarse) {
+
+        /* проверяем, что смартфон или сенсорный экран */
+        &:active {
+          background-size: 20px;
+          transition: background ease-in 0.1s;
+        }
+      }
     }
   }
 
-  input[type=submit] {
-    background: transparent center left / var(--icon-size) no-repeat url(@assets/images/icons/search.svg);
+  .hint-list {
+    background-color: white;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: calc(100% + 10px);
+    left: 0;
+    width: inherit;
+    z-index: 1;
 
-    padding: 0;
-    margin: 0;
+    .hint-list__item {
+      padding: 8px 6px 8px 10px;
 
-    width: 40px;
-    height: inherit;
+      font-size: 1em;
+      font-weight: 400;
+      line-height: 1.25em;
+      color: $dark-color;
 
-    border: none;
-    cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
-    transition: background ease-in 0.1s;
+      cursor: pointer;
+      outline: none;
 
-    /* только для desktop версии, чтобы не залипало на сенсорных экранах*/
-    @media (hover: hover) and (pointer: fine) {
-      /* проверяем что desktop с мышкой */
-      &:hover {
-        background-size: 20px;
-        transition: background ease-in 0.1s;
+      &:not(:last-child) {
+        border-bottom: 1px solid $secondary-color;
       }
-    }
-    
-    /* для события нажатия(эмуляция :hover) на сенсорных экранах */
-    @media (hover: none) and (pointer: coarse) {
-      /* проверяем, что смартфон или сенсорный экран */
-      &:active {
-        background-size: 20px;
-        transition: background ease-in 0.1s;
+
+      /* только для desktop версии, чтобы не залипало на сенсорных экранах*/
+      @media (hover: hover) and (pointer: fine) {
+
+        /* проверяем что desktop с мышкой */
+        &:focus {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
       }
+
     }
   }
+
 }

@@ -50,7 +50,7 @@ export interface IDelivery {
 
 export interface IDeliveryStore extends IDelivery {
     setWayDelivery: (param: TypeWayDelivery) => void
-    setChooseAddressRestaurant: (param: string) => void
+    setAddressRestaurant: (param: string) => void
     setAppointedTime: (param: string | null) => void
 }
 

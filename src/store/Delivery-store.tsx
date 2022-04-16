@@ -24,7 +24,7 @@ export const DeliveryProvider: React.FC<{ children: TypeChildren }> = ({
         }))
     }
 
-    const setChooseAddressRestaurant = (arg: string) => {
+    const setAddressRestaurant = (arg: string) => {
         setDelivery((state) => ({ ...state, restaurantAddress: arg }))
     }
 
@@ -37,7 +37,7 @@ export const DeliveryProvider: React.FC<{ children: TypeChildren }> = ({
             ({
                 ...delivery,
                 setWayDelivery,
-                setChooseAddressRestaurant,
+                setAddressRestaurant,
                 setAppointedTime,
             } as IDeliveryStore),
         [delivery]
