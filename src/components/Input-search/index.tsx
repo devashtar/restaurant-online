@@ -105,11 +105,7 @@ export const InputSearch: React.FC<{}> = () => {
     }
 
     return (
-        <form
-            className='search-form'
-            onSubmit={handleSubmit}
-            title='Если есть ключ, то API позволит искать только адреса'
-        >
+        <form className='search-form' onSubmit={handleSubmit}>
             <div className='search-form__input-wrapper'>
                 <input
                     ref={inputEl}

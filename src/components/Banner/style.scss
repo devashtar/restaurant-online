@@ -1,0 +1,100 @@
+@import '@assets/styles/colors';
+@import '@assets/styles/variables';
+
+.banner {
+  position: relative;
+  background: center left 20% / cover no-repeat url(@assets/images/banner.jpg);
+  height: 484px;
+
+  @media screen and (max-width: $media-mobile-tablet) {
+    height: 400px;
+  }
+
+  @media screen and (max-width: $media-mobile) {
+    height: 284px;
+  }
+
+  .banner__inner-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .banner__title {
+      position: relative;
+
+      width: 100%;
+      max-width: 600px;
+
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 2.75em;
+      font-weight: 700;
+      line-height: 1.25em;
+      color: white;
+
+      transform: scale(1) rotate(-8deg) translateX(0px) translateY(0px) skewX(-8deg) skewY(0deg);
+
+      &::before {
+        position: absolute;
+        content: 'ДОСТАВКА ВКУСНЕЙШИХ БЛЮД ЗА 60 МИНУТ';
+        left: -0.125em;
+        top: 0.125em;
+        color: transparent;
+        -webkit-mask-image: linear-gradient(to right top, transparent 10%, #dedede 70%);
+        -webkit-text-stroke: 1px white;
+      }
+
+      @media screen and (max-width: $media-mobile-tablet) {
+        max-width: 440px;
+        font-size: 2em;
+      }
+
+      @media screen and (max-width: $media-mobile) {
+        max-width: 300px;
+        font-size: 1.25em;
+      }
+    }
+  }
+
+  .banner__subtitle {
+    position: relative;
+    margin-top: 1.5em;
+
+    transform: scale(1) rotate(-8deg) translateX(0px) translateY(0px) skewX(-8deg) skewY(0deg);
+
+    white-space: nowrap;
+    font-family: sans-serif;
+    font-size: 1.25em;
+    font-weight: 700;
+    line-height: 1em; 
+
+    p {
+      background-color: $green-color;
+      padding: 0.375em 0.875em;
+      color: white;
+    }
+
+    &::before {
+      position: absolute;
+      content: attr(data-text);
+      left: -0.375em;
+      top: 0.375em;
+
+      padding: 0.375em 1.175em;
+      color: transparent;
+
+      border: 1px solid;
+      border-image-slice: 1;
+      border-image-source: linear-gradient(to right top, transparent 10%, #fefefe 70%);
+      z-index: -1;
+    }
+
+    @media screen and (max-width: $media-mobile) {
+      font-size: 0.75em;
+    }
+  }
+}

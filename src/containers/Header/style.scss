@@ -14,11 +14,11 @@ header {
             
   align-items: center;
 
-  @media screen and (max-width: $media-tablet) {
+  @media screen and (max-width: $media-laptop) {
     padding: 0px 20px;
   }
 
-  @media screen and (max-width: $media-mobile) {
+  @media screen and (max-width: $media-mobile-tablet) {
     padding: 0px 10px;
     height: 142px;
     grid-template-columns: 60px 1fr 60px;

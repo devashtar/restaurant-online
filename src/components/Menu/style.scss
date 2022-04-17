@@ -49,7 +49,7 @@
     color: $primary-color;
   }
 
-  @media screen and (min-width: $media-mobile) {
+  @media screen and (min-width: $media-mobile-tablet) {
     display: none;
   }
 }
