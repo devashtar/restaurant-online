@@ -4,13 +4,13 @@
 .container {
   padding: 0 1.25em;
   width: 100%;
-  height: 78px;
+  height: 80px;
 
   &::after {
     background-color: $gray-line-color;
     position: absolute;
     left: 0;
-    top: calc(100% - 3px);
+    top: calc(100% - 5px);
     content: '';
     height: 1px;
     width: 100%;
@@ -57,7 +57,7 @@
           background-color: $green-color;
           position: absolute;
           left: 0;
-          top: calc(100% - 4px);
+          top: calc(100% - 6px);
 
           content: '';
 
@@ -65,7 +65,7 @@
           width: 100%;
           height: 3px;
 
-          box-shadow: 0px 0px 5px 1px $green-color;
+          box-shadow: 0px 0px 4px 1px $green-color;
           z-index: 100;
         }
       }
@@ -74,21 +74,22 @@
 
     @media screen and (max-width: $media-mobile) {
       &:not(:first-child) {
-        margin-left: 0.5em;
+        margin-left: 0.25em;
       }
     }
   }
 
   @media screen and (max-width: $media-tablet) {
-    height: 64px;
+    height: 68px;
   }
 
   @media screen and (max-width: $media-mobile-tablet) {
-    height: 58px;
+    height: 62px;
   }
 
   @media screen and (max-width: $media-mobile) {
-    height: 52px;
+    padding: 0 0.5em;
+    height: 54px;
   }
 
 
