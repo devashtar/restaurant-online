@@ -99,9 +99,11 @@ export interface IFood {
 export interface ICategory {
     name: string // наименование категории блюд
     listFoodId: number[] // id блюд в данной категории
+    isActive: boolean
 }
 
 export interface IFoodMenuStore {
     menu: IFood[] // список блюд
     category: ICategory[] // список категорий
+    setActiveCategory: (param: number) => void
 }

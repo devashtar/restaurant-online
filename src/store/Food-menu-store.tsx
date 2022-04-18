@@ -10,9 +10,19 @@ export const FoodMenuProvider: React.FC<{ children: TypeChildren }> = ({
     const [category, setCategory] =
         React.useState<ICategory[]>(initListCategory)
 
+    const setActiveCategory = (idx: number) => {
+        setCategory((state) =>
+            state.map((item, index) =>
+                index === idx
+                    ? { ...item, isActive: true }
+                    : { ...item, isActive: false }
+            )
+        )
+    }
+
     const value = React.useMemo(
-        () => ({ menu, category } as IFoodMenuStore),
-        []
+        () => ({ menu, category, setActiveCategory } as IFoodMenuStore),
+        [category]
     )
     return (
         <FoodMenuContext.Provider value={value}>
@@ -21,7 +31,7 @@ export const FoodMenuProvider: React.FC<{ children: TypeChildren }> = ({
     )
 }
 
-const initMenu = [
+const initMenu: IFood[] = [
     {
         id: 1,
         name: 'Ягнёнок',
@@ -88,37 +98,45 @@ const initMenu = [
     },
 ]
 
-const initListCategory = [
+const initListCategory: ICategory[] = [
     {
         name: 'Холодные закуски',
         listFoodId: [1, 2, 3, 4],
+        isActive: true,
     },
     {
         name: 'Горячие закуски',
         listFoodId: [1, 2, 3, 4],
+        isActive: false,
     },
     {
         name: 'Мясные блюда',
         listFoodId: [1, 2, 3, 4],
+        isActive: false,
     },
     {
         name: 'Супы',
         listFoodId: [1, 2, 3, 4],
+        isActive: false,
     },
     {
         name: 'Рыбные блюда',
         listFoodId: [1, 2, 3, 4],
+        isActive: false,
     },
     {
         name: 'Гриль меню',
         listFoodId: [1, 2, 3, 4],
+        isActive: false,
     },
     {
-        name: 'ФИрменные блюда',
+        name: 'Фирменные блюда',
         listFoodId: [1, 2, 3, 4],
+        isActive: false,
     },
     {
         name: 'Напитки',
         listFoodId: [1, 2, 3, 4],
+        isActive: false,
     },
 ]

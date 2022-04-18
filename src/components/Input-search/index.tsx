@@ -104,6 +104,11 @@ export const InputSearch: React.FC<{}> = () => {
         ;(ulEl.current?.children[idx] as HTMLLIElement).focus()
     }
 
+    function turnBackFocus() {
+        setIdxLiFocused(-1)
+        inputEl.current?.focus()
+    }
+
     return (
         <form className='search-form' onSubmit={handleSubmit}>
             <div className='search-form__input-wrapper'>
@@ -144,7 +149,7 @@ export const InputSearch: React.FC<{}> = () => {
                             tabIndex={-1}
                             onClick={() => chooseAddress(name)}
                             onMouseEnter={() => selectFocus(idx)}
-                            onMouseLeave={() => setIdxLiFocused(-1)}
+                            onMouseLeave={() => turnBackFocus()}
                         >
                             {name}
                         </li>

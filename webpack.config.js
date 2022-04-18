@@ -155,7 +155,7 @@ module.exports = (env) => {
             publicPath: isDev ? '' : PRODUCTION_URL,
         },
         resolve: {
-            extensions: ['.js', '.tsx', '.scss'],
+            extensions: ['.js', '.jsx', '.tsx', '.scss'],
             alias: {
                 '@': path.resolve(__dirname, 'src'),
                 '@types': path.resolve(__dirname, 'src/types'),
