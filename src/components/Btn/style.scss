@@ -14,4 +14,11 @@
   text-decoration: none;
 
   cursor: pointer;
+
+  /* только для desktop версии, чтобы не залипало на сенсорных экранах*/
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      box-shadow: 0px 0px 5px 1px rgba(97, 137, 103, 0.3);
+    }
+  }
 }

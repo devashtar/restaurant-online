@@ -192,12 +192,28 @@ module.exports = (env) => {
                     use: cssLoaders('sass-loader'),
                 },
                 {
-                    test: /\.(png|jpg|jpeg|svg|gif)$/i,
+                    test: /\.(png|jpg|jpeg|gif)$/i,
                     type: 'asset/resource',
+                    generator: {
+                        publicPath: 'images/',
+                        outputPath: 'images/',
+                    },
+                },
+                {
+                    test: /\.svg$/i,
+                    type: 'asset/resource',
+                    generator: {
+                        publicPath: 'images/icons/',
+                        outputPath: 'images/icons/',
+                    },
                 },
                 {
                     test: /\.(ttf|woff|woff2|eot)$/i,
                     type: 'asset/resource',
+                    generator: {
+                        publicPath: 'fonts/',
+                        outputPath: 'fonts/',
+                    },
                 },
                 {
                     test: /\.jsx?$/,

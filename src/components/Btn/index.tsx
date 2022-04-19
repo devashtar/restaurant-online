@@ -15,6 +15,7 @@ type Range<F extends number, T extends number> = Exclude<
 
 interface IProps {
     value?: string
+    onClick?: () => void
     icon?: string
     iconPosition?: 'left' | 'right'
     iconSize?: number
@@ -33,6 +34,7 @@ interface IStyles {
 
 export const Btn: React.FC<IProps> = ({
     value,
+    onClick,
     fontSize = 14,
     icon,
     iconPosition = 'right',
@@ -42,7 +44,8 @@ export const Btn: React.FC<IProps> = ({
 }) => {
     const styles: Partial<IStyles> = {}
     if (icon) {
-        styles.background = `var(--green-color) center ${iconPosition} 16px / ${iconSize}px  no-repeat url(${icon})`
+        const position = value ? `center ${iconPosition} 16px` : 'center'
+        styles.background = `var(--green-color) ${position} / ${iconSize}px  no-repeat url(${icon})`
         styles.padding =
             iconPosition === 'right'
                 ? `0px ${iconSize + 30}px 0px 16px`
@@ -54,7 +57,7 @@ export const Btn: React.FC<IProps> = ({
     styles.fontSize = fontSize + 'px'
 
     return (
-        <button style={styles} className='custom-btn'>
+        <button onClick={onClick} style={styles} className='custom-btn'>
             {value}
         </button>
     )

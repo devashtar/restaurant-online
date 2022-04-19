@@ -11,16 +11,34 @@ export const OrderProvider: React.FC<{ children: TypeChildren }> = ({
 
     const addDishById = (id: number) => {
         setBasket((state) => {
-            const basket = state.map((el) =>
+            const idx = state.findIndex((el) => el.id === id)
+            if (idx === -1) {
+                return [...state, { id, amount: 1 }]
+            }
+            return state.map((el) =>
                 el.id === id ? { ...el, amount: el.amount + 1 } : el
             )
-            if (basket.length === 0) basket.push({ id, amount: 1 })
-            return basket
         })
     }
 
     const removeDishById = (id: number) => {
         setBasket((state) => state.filter((el) => el.id !== id))
+    }
+
+    const decreaseDishById = (id: number) => {
+        setBasket((state) => {
+            const idx = state.findIndex((el) => el.id === id)
+            if (idx !== -1) {
+                const q = state[idx].amount
+                if (q <= 1) {
+                    return state.filter((el) => el.id !== id)
+                }
+                return state.map((el) =>
+                    el.id === id ? { id, amount: q - 1 } : el
+                )
+            }
+            return state
+        })
     }
 
     const getNumberOfDishes = (): number => {
@@ -34,6 +52,7 @@ export const OrderProvider: React.FC<{ children: TypeChildren }> = ({
                 basket,
                 addDishById,
                 removeDishById,
+                decreaseDishById,
                 getNumberOfDishes,
             } as IOrderStore),
         [orderId, basket]

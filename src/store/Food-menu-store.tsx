@@ -101,42 +101,42 @@ const initMenu: IFood[] = [
 const initListCategory: ICategory[] = [
     {
         name: 'Холодные закуски',
-        listFoodId: [1, 2, 3, 4],
+        listFoodId: [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4],
         isActive: true,
     },
     {
         name: 'Горячие закуски',
-        listFoodId: [1, 2, 3, 4],
+        listFoodId: [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4],
         isActive: false,
     },
     {
         name: 'Мясные блюда',
-        listFoodId: [1, 2, 3, 4],
+        listFoodId: [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4],
         isActive: false,
     },
     {
         name: 'Супы',
-        listFoodId: [1, 2, 3, 4],
+        listFoodId: [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4],
         isActive: false,
     },
     {
         name: 'Рыбные блюда',
-        listFoodId: [1, 2, 3, 4],
+        listFoodId: [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4],
         isActive: false,
     },
     {
         name: 'Гриль меню',
-        listFoodId: [1, 2, 3, 4],
+        listFoodId: [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4],
         isActive: false,
     },
     {
         name: 'Фирменные блюда',
-        listFoodId: [1, 2, 3, 4],
+        listFoodId: [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4],
         isActive: false,
     },
     {
         name: 'Напитки',
-        listFoodId: [1, 2, 3, 4],
+        listFoodId: [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4],
         isActive: false,
     },
 ]

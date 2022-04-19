@@ -1,0 +1,58 @@
+@import '@assets/styles/colors';
+@import '@assets/styles/variables';
+
+.menu-by-category {
+  padding: 2em 0 1em;
+
+  &.line {
+    border: 1px solid $gray-line-color;
+  }
+
+  .menu-by-category__title {
+    position: relative;
+    margin-left: 3em;
+    font-family: inherit;
+    font-size: 1.125em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $primary-color;
+  
+    &::before {
+      background-color: $green-color;
+      content: '';
+      position: absolute;
+      left: -14px;
+      top: 0;
+      width: 3px;
+      height: 100%;
+    }
+  }
+
+  .menu-by-category__slider {
+    margin-top: 1em;
+    padding: 1em;
+    width: 100%;
+  
+    .menu-by-category__swipe-slide {
+      width: 320px;
+      margin: 0 auto;
+
+      /* Ширина привязана к компоненту Card-item, когда отображается более 
+        одной карточки в ряду*/
+      @media screen and (max-width: $media-tablet) {
+        &, & > * {
+          width: 290px;
+        }
+      }
+
+      @media screen and (max-width: $media-mobile) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+
+

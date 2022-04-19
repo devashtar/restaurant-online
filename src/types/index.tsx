@@ -30,6 +30,7 @@ export interface IOrderStore {
     basket: Array<IDish> // корзина
     addDishById: (param: number) => void
     removeDishById: (param: number) => void
+    decreaseDishById: (param: number) => void
     getNumberOfDishes: () => number
 }
 
