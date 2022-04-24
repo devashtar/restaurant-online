@@ -8,7 +8,7 @@ export const CategoryFood: React.FC<{}> = () => {
     const foodMenuStore = useFoodMenuStore()
 
     return (
-        <Swiper className='category-food' slidesPerView={'auto'}>
+        <Swiper id='food-menu' className='category-food' slidesPerView={'auto'}>
             {foodMenuStore.category.map((item, idx) => (
                 <SwiperSlide
                     key={idx}

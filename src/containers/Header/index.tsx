@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './style'
 
 import { Link } from 'react-router-dom'
 
 import { Logo } from '@components/Logo'
 import { InputSearch } from '@components/Input-search'
-import { Contacts } from '@components/Contacts'
+import { Phone } from '@components/Phone'
 import { BtnBasket } from '@components/Btn-basket'
 import { Menu } from '@components/Menu'
 
@@ -15,9 +15,9 @@ interface IItemProps {
 }
 
 export const Header: React.FC<{}> = () => {
-    const [isMobile, setIsMobile] = useState(false)
+    const [isMobile, setIsMobile] = React.useState<boolean>(false)
 
-    useEffect(() => {
+    React.useEffect(() => {
         const sizeListener = () => setIsMobile(window.innerWidth < 768)
         sizeListener()
         window.addEventListener('resize', sizeListener)
@@ -25,7 +25,7 @@ export const Header: React.FC<{}> = () => {
     }, [])
 
     return (
-        <header>
+        <header id='header'>
             {isMobile && (
                 <Item gridArea='menu'>
                     <Menu />
@@ -42,8 +42,8 @@ export const Header: React.FC<{}> = () => {
             </Item>
 
             {!isMobile && (
-                <Item gridArea='contacts'>
-                    <Contacts />
+                <Item gridArea='phone'>
+                    <Phone />
                 </Item>
             )}
 

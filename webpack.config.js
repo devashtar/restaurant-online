@@ -201,11 +201,19 @@ module.exports = (env) => {
                 },
                 {
                     test: /\.svg$/i,
-                    type: 'asset/resource',
                     generator: {
                         publicPath: 'images/icons/',
                         outputPath: 'images/icons/',
                     },
+                    oneOf: [
+                        {
+                            dependency: { not: ['url'] },
+                            use: ['@svgr/webpack', 'new-url-loader'],
+                        },
+                        {
+                            type: 'asset',
+                        },
+                    ],
                 },
                 {
                     test: /\.(ttf|woff|woff2|eot)$/i,

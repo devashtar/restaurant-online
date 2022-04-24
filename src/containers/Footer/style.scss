@@ -1,7 +1,113 @@
 @import '@assets/styles/colors';
+@import '@assets/styles/variables';
 
 footer {
+  background: linear-gradient(135deg, #211F20, #44403F);
   width: 100%;
-  padding: 0px 40px;
-  background-color: gray;
+  padding: 1em 2.25em;
+
+  @media screen and (max-width: $media-mobile-tablet) {
+    padding: 1em 0.5em;
+  }
+
+  .footer-inner-wrapper {
+    position: relative;
+    padding-left: 4em;
+
+    display: flex;
+    align-items: center;
+
+    .information-block {
+      .logo {
+        text-align: left;
+        margin: 0.5em 0 1.5em;
+      }
+
+      p {
+        font-size: 0.875em;
+        line-height: 1.25em;
+        color: $secondary-color;
+      }
+
+      .information-block__link {
+        margin-top: 0.5em;
+        text-decoration: underline;
+
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: $media-tablet) {
+      justify-content: center;
+      padding-left: 0em;
+
+      .information-block  {
+        .logo {
+          text-align: center;
+        }
+        
+        p {
+          text-align: center;
+        }
+      }
+    }
+
+    
+    
+
+    .back-to-header {
+      background-color: white;
+      position: absolute;
+      left: 0;
+      top: 0;
+  
+      width: 3em;
+      height: 3em;
+  
+      border-radius: 50%;
+  
+      cursor: pointer;
+  
+      &::after {
+        position: absolute;
+        left: calc(50% - 0.5em);
+        top: calc(50% - 0.5em);
+  
+        content: '';
+  
+        display: block;
+        width: 1em;
+        height: 1em;
+  
+        border-left: 2px solid $green-color;
+        border-top: 2px solid $green-color;
+  
+        transform: rotate(45deg);
+      }
+    }
+  }
+  
+  .navigation-block {
+    margin-left: 3em;
+    display: flex;
+
+    li {
+      margin-right: 2em;
+      cursor: pointer;
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    @media screen and (max-width: $media-tablet) {
+      display: none;
+    }
+  } 
 }

@@ -10,7 +10,7 @@ header {
   grid-template-columns: 100px minmax(240px, 556px) minmax(190px, 1fr) 150px;
   grid-template-rows: 1fr;
   grid-gap: 1em;
-  grid-template-areas: "logo form contacts basket";
+  grid-template-areas: "logo form phone basket";
             
   align-items: center;
 
@@ -29,7 +29,7 @@ header {
               "form form form";
               
     
-    .contacts {
+    .phone {
       display: none;
     }
   }

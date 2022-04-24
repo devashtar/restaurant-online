@@ -67,7 +67,8 @@ export const InputSearch: React.FC<{}> = () => {
         if (inputEl.current !== null) inputEl.current.blur()
     }
 
-    const chooseOption = (key: string) => {
+    const chooseOption = (e: React.KeyboardEvent<HTMLElement>) => {
+        const { key } = e
         if (!['ArrowUp', 'ArrowDown', 'Enter'].includes(key)) return
 
         if (ulEl.current && inputEl.current) {
@@ -75,6 +76,10 @@ export const InputSearch: React.FC<{}> = () => {
                 if (idxLiFocused !== -1) chooseAddress(inputEl.current.value)
                 return
             }
+
+            // preventDefault чтобы отключить прокрутку страницы по мы в form
+            // срабатывает только при 'ArrowUp' и 'ArrowDown' кнопках
+            e.preventDefault()
 
             const len = ulEl.current.children.length
             if (len !== 0) {
@@ -124,7 +129,7 @@ export const InputSearch: React.FC<{}> = () => {
                     spellCheck={false}
                     value={value}
                     onChange={handleChange}
-                    onKeyDown={(e) => chooseOption(e.key)}
+                    onKeyDown={(e) => chooseOption(e)}
                     onFocus={() => setShowHints(true)}
                     onBlur={() => setShowHints(false)}
                 />
@@ -135,7 +140,7 @@ export const InputSearch: React.FC<{}> = () => {
                 ref={ulEl}
                 role='listbox'
                 className='hint-list'
-                onKeyDown={(e) => chooseOption(e.key)}
+                onKeyDown={(e) => chooseOption(e)}
                 onFocus={() => setShowHints(true)}
                 onBlur={() => setShowHints(false)}
             >
