@@ -1,0 +1,12 @@
+@import '@assets/styles/colors';
+@import '@assets/styles/variables';
+
+.map-container {
+  background: center / cover no-repeat url(@assets/images/map.jpg);
+  padding: 5em 0 2em;
+
+  @media screen and (max-width: $media-tablet) {
+    background: bottom right 8% / cover no-repeat url(@assets/images/map.jpg);
+    padding: 0 0.5em 24em;
+  }
+}

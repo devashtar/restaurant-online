@@ -5,7 +5,12 @@
   margin-top: 1em;
 
   .presentation-block__inner-wrapper {
+    margin-bottom: -5em;
     padding: 0 2em;
+
+    @media screen and (max-width: $media-tablet) {
+      margin-bottom: 0;
+    }
 
     @media screen and (max-width: $media-mobile-tablet) {
       padding: 0 0 2em 0;
@@ -55,7 +60,7 @@
       }
 
       .text-block {
-        align-self: stretch;
+        align-self: stretch; 
 
         .title {
           margin-top: 1em;
@@ -165,18 +170,6 @@
           }
         }
       }
-    }
-  }
-
-  .map-block {
-    background: center / cover no-repeat url(@assets/images/map.jpg);
-    margin-top: -5em;
-    padding: 5em 0 2em;
-
-    @media screen and (max-width: $media-tablet) {
-      background: bottom right 8% / cover no-repeat url(@assets/images/map.jpg);
-      margin: 0;
-      padding: 0 0.5em 24em;
     }
   }
 }

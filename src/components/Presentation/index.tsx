@@ -9,6 +9,7 @@ import { ReactComponent as IconFlesh } from '@assets/images/icons/flash.svg'
 import { ReactComponent as IconOnion } from '@assets/images/icons/onion.svg'
 
 import { Btn } from '@components/Btn'
+import { MapContainer } from '@components/Map-container'
 import { Contacts } from '@components/Contacts'
 
 /* Статья об SVG(работа размерами): https://www.digitalocean.com/community/tutorials/svg-preserve-aspect-ratio */
@@ -59,9 +60,9 @@ export const Presentation: React.FC<{}> = () => {
                     </div>
                 </div>
             </div>
-            <div className='map-block'>
+            <MapContainer>
                 <Contacts />
-            </div>
+            </MapContainer>
         </section>
     )
 }
