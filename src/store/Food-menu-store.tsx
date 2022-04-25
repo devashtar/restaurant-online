@@ -1,5 +1,11 @@
 import React from 'react'
-import { TypeChildren, IFoodMenuStore, IFood, ICategory } from '@/types'
+import {
+    TypeChildren,
+    IFoodMenuStore,
+    IFood,
+    ICategory,
+    IPopular,
+} from '@/types'
 
 export const FoodMenuContext = React.createContext<IFoodMenuStore | null>(null)
 
@@ -9,6 +15,8 @@ export const FoodMenuProvider: React.FC<{ children: TypeChildren }> = ({
     const [menu, setPayment] = React.useState<IFood[]>(initMenu)
     const [category, setCategory] =
         React.useState<ICategory[]>(initListCategory)
+    const [popularDishes, setPopularDishes] = React.useState<IPopular>(popular)
+    const [activeDish, setActiveDish] = React.useState<IFood | null>(null)
 
     const setActiveCategory = (idx: number) => {
         setCategory((state) =>
@@ -20,15 +28,33 @@ export const FoodMenuProvider: React.FC<{ children: TypeChildren }> = ({
         )
     }
 
+    const setActiveCard = (id: number) => {
+        const dish = menu.find((el) => el.id === id)!
+        setActiveDish(dish)
+    }
+
     const value = React.useMemo(
-        () => ({ menu, category, setActiveCategory } as IFoodMenuStore),
-        [category]
+        () =>
+            ({
+                menu,
+                category,
+                popularDishes,
+                activeDish,
+                setActiveCard,
+                setActiveCategory,
+            } as IFoodMenuStore),
+        [category, activeDish]
     )
     return (
         <FoodMenuContext.Provider value={value}>
             {children}
         </FoodMenuContext.Provider>
     )
+}
+
+const popular = {
+    name: 'С ЭТИМ ТОВАРОМ ПОКУПАЮТ',
+    listFoodId: [1, 2, 3, 4],
 }
 
 const initMenu: IFood[] = [

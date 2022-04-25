@@ -8,9 +8,14 @@ import { CardItem } from '@components/Card-item'
 interface IProps {
     order?: number
     borderTop?: boolean
+    showPopular?: boolean
 }
 
-export const MenuByCategory: React.FC<IProps> = ({ order, borderTop }) => {
+export const MenuByCategory: React.FC<IProps> = ({
+    order,
+    borderTop,
+    showPopular,
+}) => {
     const foodMenuStore = useFoodMenuStore()
 
     const index =
@@ -18,7 +23,9 @@ export const MenuByCategory: React.FC<IProps> = ({ order, borderTop }) => {
             ? order
             : foodMenuStore.category.findIndex(({ isActive }) => isActive)
 
-    const currentCategory = foodMenuStore.category[index]
+    const currentCategory = showPopular
+        ? foodMenuStore.popularDishes
+        : foodMenuStore.category[index]
 
     return (
         <section className={'menu-by-category' + (borderTop ? ' line' : '')}>

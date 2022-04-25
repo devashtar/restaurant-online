@@ -103,8 +103,16 @@ export interface ICategory {
     isActive: boolean
 }
 
+export interface IPopular {
+    name: string // наименование категории блюд
+    listFoodId: number[] // id блюд в данной категории
+}
+
 export interface IFoodMenuStore {
     menu: IFood[] // список блюд
     category: ICategory[] // список категорий
+    popularDishes: IPopular // список id блюд(самых популярных)
+    activeDish: IFood
+    setActiveCard: (param: number) => void
     setActiveCategory: (param: number) => void
 }

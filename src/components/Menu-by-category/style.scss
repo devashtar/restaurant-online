@@ -2,10 +2,19 @@
 @import '@assets/styles/variables';
 
 .menu-by-category {
+  position: relative;
   padding: 2em 0 1em;
 
-  &.line {
-    border-top: 1px solid $gray-line-color;
+  &.line::before {
+    background: linear-gradient(to right, $gray-line-color, transparent);
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    content: '';
+
+    width: 100%;
+    height: 1px;
   }
 
   .menu-by-category__title {

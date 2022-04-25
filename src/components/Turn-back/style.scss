@@ -1,0 +1,45 @@
+@import '@assets/styles/colors';
+
+.turn-back {
+  display: inline-block;
+
+  cursor: pointer;
+
+  span {
+    background-color: $green-color;
+    position: relative;
+
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+
+    vertical-align: middle;
+    
+    border-radius: 50%;
+
+    &::after {
+      position: absolute;
+      left: calc(50% - 0.5em / 4);
+      top: calc(50% - 0.5em / 2);
+      content: '';
+      display: block;
+      width: 0.5em;
+      height: 0.5em;
+
+      border-left: 2px solid $primary-color;
+      border-top: 2px solid $primary-color;
+
+      transform: rotate(-45deg);
+    }
+  }
+
+  p {
+    display: inline-block;
+    margin-left: 0.75em;
+
+    font-family: inherit;
+    font-size: 0.875em;
+    font-weight: 500;
+    color: $secondary-color;
+  }
+}

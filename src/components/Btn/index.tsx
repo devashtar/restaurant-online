@@ -15,7 +15,7 @@ type Range<F extends number, T extends number> = Exclude<
 
 interface IProps {
     value?: string
-    onClick?: () => void
+    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
     icon?: string
     iconPosition?: 'left' | 'right'
     iconSize?: number
